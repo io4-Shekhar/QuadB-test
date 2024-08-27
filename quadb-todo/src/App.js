@@ -1,9 +1,11 @@
-import todoTaskList from "./Component/todoTaskList";
+import Navbar from "./Component/navbar";
+import TodoTaskList from "./Component/todoTaskList";
 
 function App() {
   return (
     <div>
-      <todoTaskList />
+      <Navbar />
+      <TodoTaskList />
     </div>
   );
 }

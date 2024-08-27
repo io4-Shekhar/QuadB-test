@@ -1,5 +1,5 @@
 import React from "react";
-function todoRemove() {
+function TodoRemove() {
   return <></>;
 }
-export default todoRemove;
+export default TodoRemove;
