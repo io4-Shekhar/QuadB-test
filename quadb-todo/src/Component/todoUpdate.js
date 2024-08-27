@@ -1,4 +1,4 @@
-import { Box, Button, Checkbox, TextField } from "@mui/material";
+import { Box, Button, Checkbox, Divider, TextField } from "@mui/material";
 import React, { useState } from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -52,7 +52,13 @@ function TodoUpdate({ todo, remove, update, toggleComplete }) {
     );
   } else {
     result = (
-      <Box className="Todo" sx={{ display: "flex" }}>
+      <Box
+        sx={{
+          display: "flex",
+          borderBottom: "1px solid black",
+          marginLeft: "",
+        }}
+      >
         <Checkbox size="small" sx={{ marginTop: "8px" }} />
         <li
           style={{

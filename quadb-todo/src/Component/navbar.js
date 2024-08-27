@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -11,6 +11,7 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import image from "../Assets/logo.png";
 import GridViewIcon from "@mui/icons-material/GridView";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   alignItems: "flex-start",
@@ -22,11 +23,25 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 }));
 
 export default function Navbar() {
+  const [darkMode, setDarkMode] = useState(false);
+  const HandleDarkMode = () => {
+    console.log("shekhar");
+    setDarkMode(() => !darkMode);
+    localStorage.setItem(
+      "style",
+      JSON.stringify({ backgroundColor: "black", color: "white" })
+    );
+  };
+  console.log("dar", darkMode);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
-        sx={{ backgroundColor: "transparent", height: "44px" }}
+        sx={{
+          backgroundColor: "transparent",
+          height: "44px",
+          boxShadow: "none",
+        }}
       >
         <StyledToolbar>
           <IconButton
@@ -55,7 +70,11 @@ export default function Navbar() {
             </IconButton>
 
             <IconButton size="small" color="black">
-              <DarkModeIcon size="small" />
+              {darkMode ? (
+                <LightModeIcon />
+              ) : (
+                <DarkModeIcon size="small" onClick={HandleDarkMode} />
+              )}
             </IconButton>
           </Box>
         </StyledToolbar>

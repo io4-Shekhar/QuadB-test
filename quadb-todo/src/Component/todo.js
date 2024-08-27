@@ -21,13 +21,13 @@ function Todo({ task, createTodo }) {
     const newTodo = {
       id: Math.random() + 3,
       task: userInput.task,
+
       completed: false,
     };
 
     createTodo(newTodo);
     setUserInput({ task: "" });
   };
-
   return (
     <>
       <form className="NewTodoForm" onSubmit={handleSubmit}>
@@ -36,11 +36,16 @@ function Todo({ task, createTodo }) {
           type="text"
           id="task"
           name="task"
-          label="What is your next task"
+          label="Add A Task"
           variant="outlined"
           value={userInput.task}
           onChange={handleChange}
-          sx={{ border: "transparent" }}
+          sx={{
+            border: "",
+            width: "100%",
+            "& fieldset": { border: "none" },
+            marginTop: "20px",
+          }}
         />
       </form>
       <Box
@@ -48,13 +53,13 @@ function Todo({ task, createTodo }) {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
-          marginTop: "30px",
+          marginTop: "10px",
         }}
       >
-        <Box>
+        <Box sx={{ marginLeft: "8px" }}>
           <NotificationsTwoToneIcon />
-          <LoopTwoToneIcon />
-          <DateRangeTwoToneIcon />
+          <LoopTwoToneIcon sx={{ marginLeft: "12px" }} />
+          <DateRangeTwoToneIcon sx={{ marginLeft: "12px" }} />
         </Box>
         <Button
           variant="contained"
@@ -63,19 +68,19 @@ function Todo({ task, createTodo }) {
           sx={{
             backgroundColor: "transparent",
             color: "green",
-            height: "40px",
-            marginLeft: "10px",
+            height: "35px",
+            marginRight: "2px",
             textTransform: "capitalize",
             "&:hover": {
               backgroundColor: "transparent",
               color: "green",
-              height: "40px",
-              marginLeft: "10px",
+              height: "35px",
+              marginLeft: "2px",
               textTransform: "capitalize",
             },
           }}
         >
-          Add todo
+          ADD TASK
         </Button>
       </Box>
     </>

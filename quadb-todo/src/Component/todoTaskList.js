@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import todoRemove from "./todoRemove";
 import Todo from "./todo";
 import TodoUpdate from "./todoUpdate";
 import avtar from "../Assets/avtar.jpg";
@@ -87,13 +86,11 @@ function TodoTaskList() {
         <Grid
           container
           sx={{
-            backgroundColor: "white",
+            backgroundColor: "transparent",
             height: "500px",
-            borderRadius: "20px",
             margin: "auto",
             marginTop: "25px",
             padding: "10px",
-            boxShadow: "2px 1px 2px 2px white",
           }}
           rowSpacing={1}
           // columnSpacing={{ xs: 1, sm: 2, md: 0 }}
@@ -141,11 +138,24 @@ function TodoTaskList() {
                 sx={{
                   display: "flex",
                   justifyContent: "left",
-                  marginLeft: "20px",
+                  paddingLeft: "20px",
+                  height: "30px",
+                  paddingTop: "5px",
+                  "&:hover": {
+                    backgroundColor: "#EEF6EF",
+                    color: "green",
+                    borderRadius: "10px",
+                    height: "30px",
+                  },
                 }}
               >
                 <AssignmentIcon />
-                <Typography style={{ cursor: "pointer", marginLeft: "10px" }}>
+                <Typography
+                  sx={{
+                    cursor: "pointer",
+                    marginLeft: "10px",
+                  }}
+                >
                   All task
                 </Typography>
               </Box>
@@ -153,7 +163,15 @@ function TodoTaskList() {
                 sx={{
                   display: "flex",
                   justifyContent: "left",
-                  marginLeft: "20px",
+                  paddingLeft: "20px",
+                  height: "30px",
+                  paddingTop: "5px",
+                  "&:hover": {
+                    backgroundColor: "#EEF6EF",
+                    color: "green",
+                    borderRadius: "10px",
+                    height: "30px",
+                  },
                 }}
               >
                 <CalendarMonth />
@@ -166,7 +184,15 @@ function TodoTaskList() {
                 sx={{
                   display: "flex",
                   justifyContent: "left",
-                  marginLeft: "20px",
+                  paddingLeft: "20px",
+                  height: "30px",
+                  paddingTop: "5px",
+                  "&:hover": {
+                    backgroundColor: "#EEF6EF",
+                    color: "green",
+                    borderRadius: "10px",
+                    height: "30px",
+                  },
                 }}
               >
                 <GradeOutlinedIcon />
@@ -179,7 +205,15 @@ function TodoTaskList() {
                 sx={{
                   display: "flex",
                   justifyContent: "left",
-                  marginLeft: "20px",
+                  paddingLeft: "20px",
+                  height: "30px",
+                  paddingTop: "5px",
+                  "&:hover": {
+                    backgroundColor: "#EEF6EF",
+                    color: "green",
+                    borderRadius: "10px",
+                    height: "30px",
+                  },
                 }}
               >
                 <MapTwoToneIcon />
@@ -191,7 +225,15 @@ function TodoTaskList() {
                 sx={{
                   display: "flex",
                   justifyContent: "left",
-                  marginLeft: "20px",
+                  paddingLeft: "20px",
+                  height: "30px",
+                  paddingTop: "5px",
+                  "&:hover": {
+                    backgroundColor: "#EEF6EF",
+                    color: "green",
+                    borderRadius: "10px",
+                    height: "30px",
+                  },
                 }}
               >
                 <AssignmentIndTwoToneIcon />
@@ -239,14 +281,15 @@ function TodoTaskList() {
               <Typography>11</Typography>
             </Box>
           </Grid>
-          <Grid item xs={12} md={9} sx={{ border: "2px solid black" }}>
+          <Grid item xs={12} md={9} sx={{ padding: "0 0 0 25px !important" }}>
             <Box sx={{ backgroundColor: "#EEF6EF", height: "130px" }}>
               <Todo createTodo={create} />
             </Box>
             <ul
               style={{
-                height: "200px",
-                overflowY: todos?.length >= 5 ? "scroll" : "none",
+                padding: "0px",
+                height: "300px",
+                overflowY: todos?.length >= 7 ? "scroll" : "none",
               }}
             >
               {todosList}
