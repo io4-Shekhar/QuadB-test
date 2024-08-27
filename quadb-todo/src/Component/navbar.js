@@ -22,16 +22,28 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   },
 }));
 
-export default function Navbar() {
+export default function Navbar({ checked, onChange }) {
   const [darkMode, setDarkMode] = useState(false);
   const HandleDarkMode = () => {
     console.log("shekhar");
-    setDarkMode(() => !darkMode);
+    setDarkMode(!darkMode);
     localStorage.setItem(
       "style",
       JSON.stringify({ backgroundColor: "black", color: "white" })
     );
+    // document.location.reload();
   };
+
+  const HandleLightMode = () => {
+    console.log("shekhar");
+    setDarkMode(!darkMode);
+    localStorage.setItem(
+      "style",
+      JSON.stringify({ backgroundColor: "white", color: "white" })
+    );
+    // document.location.reload();
+  };
+
   console.log("dar", darkMode);
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -70,10 +82,10 @@ export default function Navbar() {
             </IconButton>
 
             <IconButton size="small" color="black">
-              {darkMode ? (
-                <LightModeIcon />
+              {checked ? (
+                <LightModeIcon onClick={onChange} />
               ) : (
-                <DarkModeIcon size="small" onClick={HandleDarkMode} />
+                <DarkModeIcon size="small" onClick={onChange} />
               )}
             </IconButton>
           </Box>

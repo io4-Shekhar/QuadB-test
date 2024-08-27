@@ -22,6 +22,7 @@ import {
   Typography,
 } from "@mui/material";
 import { CalendarMonth } from "@mui/icons-material";
+import ChartComponent from "./ChartComponent";
 
 function TodoTaskList() {
   console.log("random number", Math.random());
@@ -271,14 +272,26 @@ function TodoTaskList() {
             </Box>
             <Box
               sx={{
-                display: "flex",
-                justifyContent: "center",
+                // display: "flex",
+                // justifyContent: "center",
                 backgroundColor: "white",
                 marginTop: "5px",
+                backgroundColor: "white",
+                margin: "10px auto",
+                width: "90%",
               }}
             >
-              <Typography sx={{ cursor: "pointer" }}>Today task</Typography>
-              <Typography>11</Typography>
+              <Typography
+                sx={{
+                  cursor: "pointer",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                Today task
+              </Typography>
+              {/* <Typography>11</Typography> */}
+              <ChartComponent />
             </Box>
           </Grid>
           <Grid item xs={12} md={9} sx={{ padding: "0 0 0 25px !important" }}>
